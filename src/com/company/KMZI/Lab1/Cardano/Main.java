@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -15,17 +16,21 @@ public class Main {
         String keyFile = "C:\\Users\\Gromotey\\IdeaProjects\\untitled1\\input.txt";
 
 
-        BufferedReader reader = new BufferedReader(new FileReader(keyFile));
-        String str;
-        ArrayList<String> list = new ArrayList<>();
-        while((str = reader.readLine()) != null ){
-            if(!str.isEmpty()){
-                list.add(str);
-            }}
-        System.out.println(list);
 
+        File inFile = new File(keyFile); // Чтение ключа в массив char
+        Scanner scanner = new Scanner(inFile);
+        char[][] array = new char[sizeTable][sizeTable];
+        for(int i=0; i < sizeTable; i++) {
+            array[i] = scanner.nextLine().toCharArray();
+        }
+        for(int i = 0; i < sizeTable; i++){
+            for (int j = 0; j < sizeTable; j++){
+                System.out.print(array[i][j]);
+            }
+            System.out.println();
+        }
 
-        System.out.println("Input message: ");
+        System.out.println("Input message: ");  // Ввод сообщения
         Scanner scannerChar = new Scanner(System.in);
         String message = scannerChar.nextLine();
         if (message.length() <= maxSizeMessage) {
